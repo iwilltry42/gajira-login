@@ -6,6 +6,7 @@ module.exports = class {
       baseUrl: config.baseUrl,
       token: config.token,
       email: config.email,
+      apiVersion: config.apiVersion
     })
 
     this.config = config
@@ -14,6 +15,9 @@ module.exports = class {
   }
 
   async execute () {
+
+    console.log(`Logging in to Jira at ${this.Jira.baseUrl} (API-Version ${this.Jira.apiVersion})`)
+
     const myself = await this.Jira.getMyself()
 
     console.log(`Logged in as: ${myself.name}`)

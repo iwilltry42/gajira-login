@@ -16,11 +16,13 @@ async function exec () {
     if (!process.env.JIRA_BASE_URL) throw new Error('Please specify JIRA_BASE_URL env')
     if (!process.env.JIRA_API_TOKEN) throw new Error('Please specify JIRA_API_TOKEN env')
     if (!process.env.JIRA_USER_EMAIL) throw new Error('Please specify JIRA_USER_EMAIL env')
+    if (!process.env.JIRA_API_VERSION) throw new Error('Please specify JIRA_API_VERSION env')
 
     const config = {
       baseUrl: process.env.JIRA_BASE_URL,
       token: process.env.JIRA_API_TOKEN,
       email: process.env.JIRA_USER_EMAIL,
+      apiVersion: process.env.JIRA_API_VERSION,
     }
 
     const result = await new Action({
